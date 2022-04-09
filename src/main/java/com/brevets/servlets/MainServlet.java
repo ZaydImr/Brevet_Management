@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ismo.brevets.dao.DaoInvention;
 import com.ismo.brevets.metier.IMetier;
 import com.ismo.brevets.metier.MetierBrevet;
 import com.ismo.brevets.metier.MetierDomaine;
@@ -138,6 +139,9 @@ public class MainServlet extends HttpServlet {
 			
 			
 			default:{
+				DaoInvention daoInvention = new DaoInvention();
+				request.setAttribute("inventionByDomaine", daoInvention.getAllByDomaine());
+				request.setAttribute("inventionByEntreprise", daoInvention.getAllByEntreprise());
 				request.setAttribute("title", "Home");
 				request.setAttribute("page", "../views/home.jsp");
 			} break;
