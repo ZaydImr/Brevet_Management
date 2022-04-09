@@ -33,7 +33,7 @@ public class Inventeur {
 	@OneToMany(mappedBy = "inventeur")
 	private List<Brevet> brevets;
 	
-	private Inventeur() {
+	public Inventeur() {
 		
 	}
 	

@@ -14,24 +14,28 @@
 </c:if>
 
 <div class="w-100 text-end">
-<a href="<%= request.getContextPath() %>/add-domaine" class="btn btn-primary mb-4">Add domaine</a>
+<a href="<%= request.getContextPath() %>/add-invention" class="btn btn-primary mb-4">Add invention</a>
 </div>
 
 <div class="border rounded-3 p-4">
 	<table class="table mt-2 table-striped  table-hover"  id="dtBasicExample">
 		<thead class=" table-dark ">
-			<th>NUM_DOMAINE</th>
+			<th>NUM_INVENTION</th>
+			<th>DESCRIPTIF</th>
+			<th>RESUME</th>
 			<th>NOM_DOMAINE</th>
-			<th class="text-center">Actions</th>
+			<th class="text-center">Actions</th>	
 		</thead>
 		<tbody>
 			<c:forEach var="item" items="${list }">
 				<tr>
 					<td>${item.num }</td>
-					<td>${item.nom }</td>
-					<td class="text-center">
-						<a class="btn btn-secondary" href="<%= request.getContextPath() %>/edit-domaine?num=${item.num}">Edit</a>
-						<a class="btn btn-danger" href="<%= request.getContextPath() %>/delete-domaine?num=${item.num}">Delete</a>
+					<td>${item.descriptif }</td>
+					<td>${item.resume.substring(0, 45) }...</td>
+					<td>${item.domaine.nom }</td>
+					<td class="text-center"> 
+						<a class="btn btn-secondary" href="<%= request.getContextPath() %>/edit-invention?num=${item.num}">Edit</a>
+						<a class="btn btn-danger" href="<%= request.getContextPath() %>/delete-invention?num=${item.num}">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>

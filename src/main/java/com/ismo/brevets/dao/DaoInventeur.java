@@ -31,22 +31,46 @@ public class DaoInventeur implements IDAO<Inventeur> {
 		return d;
 	}
 
-	@Override
 	public boolean save(Inventeur obj) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+			Transaction t = s.beginTransaction();
+			s.save(obj);
+			t.commit();
+			s.close();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean update(Inventeur obj) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+			Transaction t = s.beginTransaction();
+			s.update(obj);
+			t.commit();
+			s.close();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean delete(Inventeur obj) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+			Transaction t = s.beginTransaction();
+			s.delete(obj);
+			t.commit();
+			s.close();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
+
 
 }

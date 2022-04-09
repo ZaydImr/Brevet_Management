@@ -14,14 +14,18 @@
 </c:if>
 
 <div class="w-100 text-end">
-<a href="<%= request.getContextPath() %>/add-domaine" class="btn btn-primary mb-4">Add domaine</a>
+<a href="<%= request.getContextPath() %>/add-inventeur" class="btn btn-primary mb-4">Add inventeur</a>
 </div>
 
 <div class="border rounded-3 p-4">
 	<table class="table mt-2 table-striped  table-hover"  id="dtBasicExample">
 		<thead class=" table-dark ">
-			<th>NUM_DOMAINE</th>
-			<th>NOM_DOMAINE</th>
+			<th>NUM_INVENTEUR</th>
+			<th>NOM</th>
+			<th>PRENOM</th>
+			<th>ADRESSE</th>
+			<th>DATE_NAISSANCE</th>	
+			<th>NOM_ENTREPRISE</th>	
 			<th class="text-center">Actions</th>
 		</thead>
 		<tbody>
@@ -29,9 +33,13 @@
 				<tr>
 					<td>${item.num }</td>
 					<td>${item.nom }</td>
-					<td class="text-center">
-						<a class="btn btn-secondary" href="<%= request.getContextPath() %>/edit-domaine?num=${item.num}">Edit</a>
-						<a class="btn btn-danger" href="<%= request.getContextPath() %>/delete-domaine?num=${item.num}">Delete</a>
+					<td>${item.prenom  }</td>
+					<td>${item.adresse }</td>
+					<td>${item.date_nais }</td>
+					<td>${item.entreprise.nom }</td>
+					<td class="text-center"> 
+						<a class="btn btn-secondary" href="<%= request.getContextPath() %>/edit-inventeur?num=${item.num}">Edit</a>
+						<a class="btn btn-danger" href="<%= request.getContextPath() %>/delete-inventeur?num=${item.num}">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>

@@ -2,38 +2,37 @@ package com.ismo.brevets.metier;
 
 import java.util.List;
 
+import com.ismo.brevets.dao.DaoDomaine;
+import com.ismo.brevets.dao.IDAO;
 import com.ismo.brevets.models.Domaine;
 
 public class MetierDomaine implements IMetier<Domaine> {
+	
+	private IDAO<Domaine> domaine = new DaoDomaine(); 
 
 	@Override
 	public List<Domaine> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return domaine.getAll();
 	}
 
 	@Override
 	public Domaine getOne(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return domaine.getOne(id);
 	}
 
 	@Override
 	public boolean save(Domaine obj) {
-		// TODO Auto-generated method stub
-		return false;
+		return domaine.save(obj);
 	}
 
 	@Override
 	public boolean update(Domaine obj) {
-		// TODO Auto-generated method stub
-		return false;
+		return domaine.update(obj);
 	}
 
 	@Override
 	public boolean delete(Domaine obj) {
-		// TODO Auto-generated method stub
-		return false;
+		return domaine.delete(obj);
 	}
 
 }

@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import com.hibernate.utils.HibernateUtils;
 import com.ismo.brevets.models.Brevet;
+import com.ismo.brevets.models.Domaine;
 
 public class DaoBrevet implements IDAO<Brevet> {
 
@@ -29,22 +30,46 @@ public class DaoBrevet implements IDAO<Brevet> {
 		return b;
 	}
 
-	@Override
 	public boolean save(Brevet obj) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+			Transaction t = s.beginTransaction();
+			s.save(obj);
+			t.commit();
+			s.close();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean update(Brevet obj) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+			Transaction t = s.beginTransaction();
+			s.update(obj);
+			t.commit();
+			s.close();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean delete(Brevet obj) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+			Transaction t = s.beginTransaction();
+			s.delete(obj);
+			t.commit();
+			s.close();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
+
 
 }

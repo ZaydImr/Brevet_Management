@@ -13,25 +13,35 @@
 	</div>
 </c:if>
 
+
+
 <div class="w-100 text-end">
-<a href="<%= request.getContextPath() %>/add-domaine" class="btn btn-primary mb-4">Add domaine</a>
+<a href="<%= request.getContextPath() %>/add-brevet" class="btn btn-primary mb-4">Add brevet</a>
 </div>
 
 <div class="border rounded-3 p-4">
 	<table class="table mt-2 table-striped  table-hover"  id="dtBasicExample">
 		<thead class=" table-dark ">
-			<th>NUM_DOMAINE</th>
-			<th>NOM_DOMAINE</th>
-			<th class="text-center">Actions</th>
+			<th>NUM_BREVET</th>
+			<th>DESCRIPTION</th>
+			<th>DATE_DEPOT</th>
+			<th>DATE_VALIDATION</th>
+			<th>NOM_INVENTEUR</th>	
+			<th>INVENTION DESCRIPTIF</th>	
+			<th class="text-center">Actions</th>	
 		</thead>
 		<tbody>
 			<c:forEach var="item" items="${list }">
 				<tr>
 					<td>${item.num }</td>
-					<td>${item.nom }</td>
-					<td class="text-center">
-						<a class="btn btn-secondary" href="<%= request.getContextPath() %>/edit-domaine?num=${item.num}">Edit</a>
-						<a class="btn btn-danger" href="<%= request.getContextPath() %>/delete-domaine?num=${item.num}">Delete</a>
+					<td>${item.description }</td>
+					<td>${item.dateDepot }</td>
+					<td>${item.dateValidation }</td>
+					<td>${item.inventeur.nom } ${item.inventeur.prenom }</td>
+					<td>${item.invention.descriptif }</td>
+					<td class="text-center" style="min-width: 140px;"> 
+						<a class="btn btn-secondary" href="<%= request.getContextPath() %>/edit-brevet?num=${item.num}">Edit</a>
+						<a class="btn btn-danger" href="<%= request.getContextPath() %>/delete-brevet?num=${item.num}">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>

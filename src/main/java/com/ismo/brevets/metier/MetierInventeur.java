@@ -2,38 +2,40 @@ package com.ismo.brevets.metier;
 
 import java.util.List;
 
+import com.ismo.brevets.dao.DaoInventeur;
+import com.ismo.brevets.dao.IDAO;
 import com.ismo.brevets.models.Inventeur;
 
 public class MetierInventeur implements IMetier<Inventeur> {
+	
+	private IDAO<Inventeur> inventeur = new DaoInventeur();
 
 	@Override
 	public List<Inventeur> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return inventeur.getAll();
 	}
 
 	@Override
 	public Inventeur getOne(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return inventeur.getOne(id);
 	}
 
 	@Override
 	public boolean save(Inventeur obj) {
 		// TODO Auto-generated method stub
-		return false;
+		return inventeur.save(obj);
 	}
 
 	@Override
 	public boolean update(Inventeur obj) {
 		// TODO Auto-generated method stub
-		return false;
+		return inventeur.update(obj);
 	}
 
 	@Override
 	public boolean delete(Inventeur obj) {
 		// TODO Auto-generated method stub
-		return false;
+		return inventeur.delete(obj);
 	}
 
 }
